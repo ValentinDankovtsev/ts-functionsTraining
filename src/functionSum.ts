@@ -1,4 +1,4 @@
-export function sum(a: number | undefined): any {
+export function sum(a: number | undefined): number {
   if (a === undefined) return 0;
   let currentSum = a;
 
