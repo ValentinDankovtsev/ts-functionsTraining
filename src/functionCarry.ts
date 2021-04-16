@@ -1,11 +1,27 @@
-const add = (a: number, b: number, c: number, d: number, e: number) =>
-  a + b + c + d + e;
 
-function curry<A, B, C, D, E, F, J>(
-  cb: (a: A, b: B, c: C, d: D, e: E, f: F) => J
-): (a: A) => (b: B) => (c: C) => (d: D) => (e: E) => (f: F) => J;
 
-function curry(fn: (...args: number[]) => number) {
+export function curry<A, B, C, D, E, F>(
+    cb: (a: A, b: B, c: C, d: D, e: E, f: F) => F
+  ): (a: A, b: B, c: C) => (d: D, e: E) => F;
+
+export function curry<A, B, C, D, E, F>(
+  cb: (a: A, b: B, c: C, d: D, e: E, f: F) => F
+): (a: A, b: B, c: C, d: D, e: E) => F;
+
+export function curry<A, B, C, D, E, F>(
+  cb: (a: number, b: number, c: number, d: number, e: number, f: number) => F
+): (a: A, b: B) => (c: C, d: D) => (e: E) => F;
+
+export function curry<A, B, C, D, E, F, J>(
+  cb: (a: number, b: number, c: number, d: number, e: number, f: number) => J
+): (a: A) => (b: B) => (c: C) => (d: D) => (e: E) => (f: F)=>J;
+
+export function curry<A, B, C, D, E, F>(
+  cb: (a: A, b: B, c: C, d: D, e: E, f: F) => F
+): (a: A, b: B) => (c: C) => (d: D, e: E) => F;
+
+// eslint-disable-next-line @typescript-eslint/ban-types
+export function curry(fn: Function):Function{
   const arity = fn.length;
 
   return function carred(...args: number[]) {
@@ -18,4 +34,3 @@ function curry(fn: (...args: number[]) => number) {
   };
 }
 
-export const curriedAdd = curry(add);
