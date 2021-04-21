@@ -11,7 +11,8 @@ describe("should return sum alert", () => {
   });
   it("should return 8", () => {
     const s3 = sum(3);
-    alert(s3(5));
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    alert((s3 as any)(5));
     expect(window.alert).toHaveReturnedWith(8);
   });
   it("should return 0", () => {
