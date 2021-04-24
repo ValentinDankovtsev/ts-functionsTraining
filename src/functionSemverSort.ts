@@ -1,6 +1,5 @@
 export function cmpVersions(a: string, b: string): number {
   const regExStrip0 = /[^0-9.]/g;
-  /*   все кроме цифр и точек заменяем  */
   const segmentsA = a.replace(regExStrip0, "").split(".");
   const segmentsB = b.replace(regExStrip0, "").split(".");
   const l = Math.min(segmentsA.length, segmentsB.length);
