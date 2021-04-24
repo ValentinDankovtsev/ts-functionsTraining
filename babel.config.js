@@ -8,9 +8,4 @@ module.exports = {
     ],
     "@babel/preset-typescript",
   ],
-  env: {
-    test: {
-      plugins: ["@babel/plugin-transform-runtime"],
-    },
-  },
 };
